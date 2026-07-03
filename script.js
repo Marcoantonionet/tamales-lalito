@@ -37,13 +37,21 @@ function updateTotal() {
 
     const totalDinero = totalProductos * PRECIO_UNITARIO;
 
-    document.getElementById('resumen-cantidades').innerText = `${totalProductos} pzas`;
-    document.getElementById('resumen-total').innerText = `$${totalDinero.toFixed(2)}`;
+    const resCant = document.getElementById('resumen-cantidades');
+    const resTotal = document.getElementById('resumen-total');
+    
+    if (resCant) resCant.innerText = `${totalProductos} pzas`;
+    if (resTotal) resTotal.innerText = `$${totalDinero.toFixed(2)}`;
 }
 
 function procesarPedido() {
-    const nombre = document.getElementById('nombre').value.trim();
-    const direccion = document.getElementById('direccion').value.trim();
+    const nombreInput = document.getElementById('nombre');
+    const direccionInput = document.getElementById('direccion');
+    
+    if (!nombreInput || !direccionInput) return;
+    
+    const nombre = nombreInput.value.trim();
+    const direccion = direccionInput.value.trim();
     
     if (!nombre || !direccion) {
         alert("Por favor, llena tu nombre y dirección antes de continuar.");
@@ -99,4 +107,3 @@ function confirmarYEnviar() {
     cerrarTicket();
 }
 
-}
