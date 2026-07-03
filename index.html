@@ -4,8 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tamales Lalito - Pedidos en Línea</title>
-    <!-- Vinculamos los estilos externos -->
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Ventana Emergente - Ticket de Aceptación */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            z-index: 1000;
+        }
+        .ticket {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-top: 8px solid var(--secondary);
+        }
+        .ticket h3 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .ticket-details {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .ticket-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+        .ticket-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        .ticket-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .btn-cancel {
+            background: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-whatsapp {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-whatsapp:hover {
+            background: #128c7e;
+        }
+    </style>
 </head>
 <body>
 
@@ -129,7 +200,6 @@
         </div>
     </div>
 
-    <!-- Ventana emergente (Ticket) -->
     <div id="modal-ticket" class="modal">
         <div class="ticket">
             <h3>Confirmación de Pedido</h3>
@@ -154,7 +224,12 @@
         <p>&copy; 2026 Tamales Lalito. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Vinculamos el comportamiento lógico externo -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        const PRECIO_UNITARIO = 20;
+        const PRODUCTOS_CONFIG = {
+            'tamal_rajas': 'Tamal de Rajas con Queso',
+            'tamal_verdes': 'Tamal Verde',
+            'tamal_dulces': 'Tamal Dulce (Rosa)',
+            'tamal_pina': 'Tamal de Piña',
+            'tamal_zarzamora': 'Tamal de Zarzamora',
+
