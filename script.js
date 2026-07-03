@@ -98,3 +98,27 @@ function confirmarYEnviar() {
     window.open(`https://wa.me{telefono}?text=${mensajeWhatsAppGlobal}`, '_blank');
     cerrarTicket();
 }
+// Contador de visitas automático usando CountAPI
+function inicializarContador() {
+    // Creamos una clave única basada en tu enlace para que no se mezcle con otras páginas
+    const namespace = "marcoantonionet-tamales-lalito";
+    const key = "visitas";
+    
+    fetch(`https://countapi.xyz{namespace}/${key}`)
+        .then(res => res.json())
+        .then(data => {
+            const elemento = document.getElementById('contador-visitas');
+            if (elemento) {
+                // Formatea el número para que tenga comas (ej. 1,250 visitas)
+                elemento.innerText = data.value.toLocaleString();
+            }
+        })
+        .catch(err => {
+            // Si el servidor del contador falla temporalmente, muestra un número estático elegante
+            const elemento = document.getElementById('contador-visitas');
+            if (elemento) elemento.innerText = "1";
+        });
+}
+
+// Ejecutar el contador de visitas en cuanto cargue la página
+window.addEventListener('DOMContentLoaded', inicializarContador);
