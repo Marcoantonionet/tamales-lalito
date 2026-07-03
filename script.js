@@ -107,3 +107,5 @@ function confirmarYEnviar() {
     cerrarTicket();
 }
 
+}
+
