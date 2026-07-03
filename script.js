@@ -120,5 +120,7 @@ function inicializarContador() {
         });
 }
 
-// Ejecutar el contador de visitas en cuanto cargue la página
-window.addEventListener('DOMContentLoaded', inicializarContador);
+}
+
+// Ejecuta la función en cuanto la página cargue por completo
+window.addEventListener('DOMContentLoaded', inicializarContadorVisitas);
