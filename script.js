@@ -111,3 +111,4 @@ window.addEventListener('DOMContentLoaded', function() {
         el.innerText = visitasSimuladas;
     }
 });
+
