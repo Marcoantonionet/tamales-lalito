@@ -94,52 +94,52 @@
         <div class="grid">
             <div class="card">
                 <img src="rajas.jpg" alt="Tamal de Rajas">
-                <div class="card-content">
+                <div class="card-content" data-producto="Tamal de Rajas con Queso">
                     <h3>Rajas con Queso</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', -1)">-</button>
-                    <input type="number" id="tamal_rajas" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="verde.jpg" alt="Tamal Verde">
-                <div class="card-content">
+                <div class="card-content" data-producto="Tamal Verde">
                     <h3>Verdes</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', -1)">-</button>
-                    <input type="number" id="tamal_verdes" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="dulces.jpg" alt="Tamal Dulce">
-                <div class="card-content">
+                <div class="card-content" data-producto="Tamal Dulce (Rosa)">
                     <h3>Dulces (Rosa)</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', -1)">-</button>
-                    <input type="number" id="tamal_dulces" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="piña.jpg" alt="Tamal de Piña">
-                <div class="card-content">
+                <div class="card-content" data-producto="Tamal de Piña">
                     <h3>Piña</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', -1)">-</button>
-                    <input type="number" id="tamal_pina" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="zarzamora.jpg" alt="Tamal de Zarzamora">
-                <div class="card-content">
+                <div class="card-content" data-producto="Tamal de Zarzamora">
                     <h3>Zarzamora</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', -1)">-</button>
-                    <input type="number" id="tamal_zarzamora" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
         </div>
@@ -148,32 +148,32 @@
         <div class="grid">
             <div class="card">
                 <img src="chocolate.jpg" alt="Atole de Chocolate">
-                <div class="card-content">
+                <div class="card-content" data-producto="Atole de Chocolate">
                     <h3>Chocolate</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', -1)">-</button>
-                    <input type="number" id="atole_chocolate" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="arroz.jpg" alt="Atole de Arroz con Leche">
-                <div class="card-content">
+                <div class="card-content" data-producto="Atole de Arroz con Leche">
                     <h3>Arroz con Leche</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', -1)">-</button>
-                    <input type="number" id="atole_arroz" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="champurrado.jpg" alt="Champurrado">
-                <div class="card-content">
+                <div class="card-content" data-producto="Champurrado">
                     <h3>Champurrado</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', -1)">-</button>
-                    <input type="number" id="atole_champurrado" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', 1)">+</button>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, -1)">-</button>
+                    <span class="qty-display">0</span>
+                    <button type="button" class="btn-qty" onclick="modificarCantidad(this, 1)">+</button>
                 </div>
             </div>
         </div>
@@ -226,9 +226,17 @@
 
     <script>
         const PRECIO_UNITARIO = 20;
-        const PRODUCTOS_CONFIG = {
-            'tamal_rajas': 'Tamal de Rajas con Queso',
-            'tamal_verdes': 'Tamal Verde',
-            'tamal_dulces': 'Tamal Dulce (Rosa)',
-            'tamal_pina': 'Tamal de Piña',
-            'tamal_zarzamora': 'Tamal de Zarzamora',
+        let mensajeWhatsAppGlobal = ""; 
+
+        function modificarCantidad(boton, cambio) {
+            // Busca el contenedor de la tarjeta para alterar su número interno
+            const contenedor = boton.parentElement;
+            const indicador = contenedor.querySelector('.qty-display');
+            if (!indicador) return;
+
+            let cantidadActual = parseInt(indicador.innerText) || 0;
+            cantidadActual += cambio;
+            if (cantidadActual < 0) cantidadActual = 0;
+
+            indicador.innerText = cantidadActual;
+
