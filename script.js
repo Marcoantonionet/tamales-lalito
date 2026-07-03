@@ -98,3 +98,5 @@ function confirmarYEnviar() {
     window.open(`https://wa.me{telefono}?text=${mensajeWhatsAppGlobal}`, '_blank');
     cerrarTicket();
 }
+
+}
