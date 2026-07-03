@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamales Lalito - Pedidos en Línea</title>
+    <!-- Vinculamos los estilos externos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Tamales Lalito</h1>
+        <p>¡Los tamales y atoles más sabrosos de la región! Todos a solo $20.00 c/u</p>
+        <p>San Bartolo Ameyalco, Delegación Álvaro Obregón, Ciudad de México</p>
+        <p>Atendido personalmente por su propietario "Lalo El Bombita"</p>
+        <p>Contacto: 5545784476</p>
+    </header>
+
+    <div class="container">
+        
+        <h2>Nuestros Tamales ($20.00)</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="rajas.jpg" alt="Tamal de Rajas">
+                <div class="card-content">
+                    <h3>Rajas con Queso</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', -1)">-</button>
+                    <input type="number" id="tamal_rajas" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="verde.jpg" alt="Tamal Verde">
+                <div class="card-content">
+                    <h3>Verdes</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', -1)">-</button>
+                    <input type="number" id="tamal_verdes" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="dulces.jpg" alt="Tamal Dulce">
+                <div class="card-content">
+                    <h3>Dulces (Rosa)</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', -1)">-</button>
+                    <input type="number" id="tamal_dulces" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="piña.jpg" alt="Tamal de Piña">
+                <div class="card-content">
+                    <h3>Piña</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', -1)">-</button>
+                    <input type="number" id="tamal_pina" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="zarzamora.jpg" alt="Tamal de Zarzamora">
+                <div class="card-content">
+                    <h3>Zarzamora</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', -1)">-</button>
+                    <input type="number" id="tamal_zarzamora" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <h2>Nuestros Atoles ($20.00)</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="chocolate.jpg" alt="Atole de Chocolate">
+                <div class="card-content">
+                    <h3>Chocolate</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', -1)">-</button>
+                    <input type="number" id="atole_chocolate" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="arroz.jpg" alt="Atole de Arroz con Leche">
+                <div class="card-content">
+                    <h3>Arroz con Leche</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', -1)">-</button>
+                    <input type="number" id="atole_arroz" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="champurrado.jpg" alt="Champurrado">
+                <div class="card-content">
+                    <h3>Champurrado</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', -1)">-</button>
+                    <input type="number" id="atole_champurrado" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <h2>Datos de Entrega</h2>
+        <div class="order-box">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección de Entrega:</label>
+                <textarea id="direccion" placeholder="Calle, número, colonia y referencias..."></textarea>
+            </div>
+            
+            <div class="summary">
+                <p><span>Total de Productos:</span> <span id="resumen-cantidades">0 pzas</span></p>
+                <p class="total-line"><span>Total a Pagar:</span> <span id="resumen-total">$0.00</span></p>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="procesarPedido()">
+                Revisar y Aceptar Pedido
+            </button>
+        </div>
+    </div>
+
+    <!-- Ventana emergente (Ticket) -->
+    <div id="modal-ticket" class="modal">
+        <div class="ticket">
+            <h3>Confirmación de Pedido</h3>
+            <div class="ticket-details">
+                <p><strong>Cliente:</strong> <span id="ticket-nombre"></span></p>
+                <p><strong>Dirección:</strong> <span id="ticket-direccion"></span></p>
+                <br>
+                <p><strong>Productos:</strong></p>
+                <ul id="ticket-productos" class="ticket-list"></ul>
+                <p class="total-line" style="display:flex; justify-content:space-between; margin-top:0.5rem;">
+                    <span>Total Final:</span> <span id="ticket-total"></span>
+                </p>
+            </div>
+            <div class="ticket-buttons">
+                <button type="button" class="btn-cancel" onclick="cerrarTicket()">Modificar</button>
+                <button type="button" class="btn-whatsapp" onclick="confirmarYEnviar()">Confirmar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tamales Lalito. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Vinculamos el comportamiento lógico externo -->
+    <script src="script.js"></script>
+</body>
+</html>
