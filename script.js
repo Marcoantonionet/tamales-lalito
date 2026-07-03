@@ -94,7 +94,7 @@ function cerrarTicket() {
 }
 
 function confirmarYEnviar() {
-    const telefono = "5545784476"; 
+    const telefono = "5643804660"; 
     window.open(`https://wa.me{telefono}?text=${mensajeWhatsAppGlobal}`, '_blank');
     cerrarTicket();
 }
