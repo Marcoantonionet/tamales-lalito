@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamales Lalito - Pedidos en Línea</title>
+    <title>Tamales Lalito - Pedidos en Linea</title>
     <style>
         :root {
             --primary: #d32f2f;
@@ -12,234 +12,53 @@
             --light: #fffde7;
             --success: #25d366;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        header {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            border-bottom: 5px solid var(--secondary);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.5rem;
-            margin: 2rem 0 1rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 1px solid #e0e0e0;
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card-content {
-            padding: 1rem;
-        }
-        .price {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-        .btn-qty {
-            background: var(--secondary);
-            border: none;
-            padding: 0.3rem 0.7rem;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-        .qty-input {
-            width: 50px;
-            text-align: center;
-            border: 1px solid #ccc;
-            margin: 0 0.5rem;
-            font-size: 1rem;
-        }
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.3rem;
-            font-weight: bold;
-        }
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 0.7rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
-        .order-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-        }
-        .summary {
-            background: #f5f5f5;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-        .summary p {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-        .total-line {
-            border-top: 2px dashed #ccc;
-            padding-top: 0.5rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-        .btn-submit {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 1rem;
-            width: 100%;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .btn-submit:hover {
-            background-color: #b71c1c;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            z-index: 1000;
-        }
-        .ticket {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-top: 8px solid var(--secondary);
-        }
-        .ticket h3 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .ticket-details {
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 1rem 0;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .ticket-list {
-            list-style: none;
-            margin: 0.5rem 0;
-        }
-        .ticket-list li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.3rem;
-        }
-        .ticket-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        .btn-cancel {
-            background: #e0e0e0;
-            color: #333;
-            border: none;
-            padding: 0.8rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .btn-whatsapp {
-            background: var(--success);
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .btn-whatsapp:hover {
-            background: #128c7e;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--dark);
-            color: white;
-            margin-top: 3rem;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        header { background-color: var(--primary); color: white; text-align: center; padding: 2rem; border-bottom: 5px solid var(--secondary); }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        h2 { color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; margin: 2rem 0 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; border: 1px solid #e0e0e0; }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 1rem; }
+        .price { font-weight: bold; color: var(--primary); font-size: 1.2rem; margin: 0.5rem 0; }
+        .btn-qty { background: var(--secondary); border: none; padding: 0.3rem 0.7rem; font-size: 1rem; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .qty-input { width: 50px; text-align: center; border: 1px solid #ccc; margin: 0 0.5rem; font-size: 1rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
+        input[type="text"], textarea { width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+        textarea { resize: vertical; height: 100px; }
+        .order-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 2rem; }
+        .summary { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; }
+        .summary p { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+        .total-line { border-top: 2px dashed #ccc; padding-top: 0.5rem; font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+        .btn-submit { background-color: var(--primary); color: white; border: none; padding: 1rem; width: 100%; font-size: 1.2rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; padding: 1rem; z-index: 1000; }
+        .ticket { background: white; padding: 2rem; border-radius: 8px; max-width: 450px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 8px solid var(--secondary); }
+        .ticket h3 { text-align: center; color: var(--primary); margin-bottom: 1rem; }
+        .ticket-details { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 1rem 0; margin-bottom: 1.5rem; }
+        .ticket-list { list-style: none; margin: 0.5rem 0; }
+        .ticket-list li { display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
+        .ticket-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .btn-cancel { background: #e0e0e0; color: #333; border: none; padding: 0.8rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .btn-whatsapp { background: var(--success); color: white; border: none; padding: 0.8rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        footer { text-align: center; padding: 2rem; background: var(--dark); color: white; margin-top: 3rem; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Tamales Lalito</h1>
-        <p>¡Los tamales y atoles más sabrosos de la región! Todos a solo $20.00 c/u</p>
-        <p>San Bartolo Ameyalco, Delegación Álvaro Obregón, Ciudad de México</p>
-        <p>Atendido personalmente por su propietario "Lalo El Bombita"</p>
+        <p>Los tamales y atoles mas sabrosos de la region! Todos a solo $20.00 c/u</p>
+        <p>San Bartolo Ameyalco, Delegacion Alvaro Obregon, Ciudad de México</p>
         <p>Contacto: 5545784476</p>
     </header>
 
     <div class="container">
-        
         <h2>Nuestros Tamales ($20.00)</h2>
         <div class="grid">
             <div class="card">
-                <img src="rajas.jpg" alt="Tamal de Rajas">
+                <img src="rajas.jpg" alt="Rajas">
                 <div class="card-content">
                     <h3>Rajas con Queso</h3>
                     <p class="price">$20.00</p>
@@ -249,7 +68,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="verde.jpg" alt="Tamal Verde">
+                <img src="verde.jpg" alt="Verde">
                 <div class="card-content">
                     <h3>Verdes</h3>
                     <p class="price">$20.00</p>
@@ -259,7 +78,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="dulces.jpg" alt="Tamal Dulce">
+                <img src="dulces.jpg" alt="Dulce">
                 <div class="card-content">
                     <h3>Dulces (Rosa)</h3>
                     <p class="price">$20.00</p>
@@ -269,9 +88,9 @@
                 </div>
             </div>
             <div class="card">
-                <img src="piña.jpg" alt="Tamal de Piña">
+                <img src="piña.jpg" alt="Pina">
                 <div class="card-content">
-                    <h3>Piña</h3>
+                    <h3>Pina</h3>
                     <p class="price">$20.00</p>
                     <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', -1)">-</button>
                     <input type="number" id="tamal_pina" class="qty-input" value="0" min="0" oninput="updateTotal()">
@@ -279,7 +98,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="zarzamora.jpg" alt="Tamal de Zarzamora">
+                <img src="zarzamora.jpg" alt="Zarzamora">
                 <div class="card-content">
                     <h3>Zarzamora</h3>
                     <p class="price">$20.00</p>
@@ -293,8 +112,49 @@
         <h2>Nuestros Atoles ($20.00)</h2>
         <div class="grid">
             <div class="card">
-                <img src="chocolate.jpg" alt="Atole de Chocolate">
+                <img src="chocolate.jpg" alt="Chocolate">
                 <div class="card-content">
                     <h3>Chocolate</h3>
                     <p class="price">$20.00</p>
                     <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', -1)">-</button>
+                    <input type="number" id="atole_chocolate" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="arroz.jpg" alt="Arroz">
+                <div class="card-content">
+                    <h3>Arroz con Leche</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', -1)">-</button>
+                    <input type="number" id="atole_arroz" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', 1)">+</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="champurrado.jpg" alt="Champurrado">
+                <div class="card-content">
+                    <h3>Champurrado</h3>
+                    <p class="price">$20.00</p>
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', -1)">-</button>
+                    <input type="number" id="atole_champurrado" class="qty-input" value="0" min="0" oninput="updateTotal()">
+                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <h2>Datos de Entrega</h2>
+        <div class="order-box">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Ej. Juan Perez">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Direccion de Entrega:</label>
+                <textarea id="direccion" placeholder="Calle, numero, colonia..."></textarea>
+            </div>
+            <div class="summary">
+                <p><span>Total de Productos:</span> <span id="resumen-cantidades">0 pzas</span></p>
+                <p class="total-line"><span>Total a Pagar:</span> <span id="resumen-total">$0.00</span></p>
+            </div>
+
