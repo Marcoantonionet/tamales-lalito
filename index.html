@@ -60,52 +60,52 @@
         <div class="grid">
             <div class="card">
                 <img src="rajas.jpg" alt="Rajas">
-                <div class="card-content">
+                <div class="card-content" data-name="Tamal de Rajas con Queso">
                     <h3>Rajas con Queso</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', -1)">-</button>
-                    <input type="number" id="tamal_rajas" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="verde.jpg" alt="Verde">
-                <div class="card-content">
+                <div class="card-content" data-name="Tamal Verde">
                     <h3>Verdes</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', -1)">-</button>
-                    <input type="number" id="tamal_verdes" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="dulces.jpg" alt="Dulce">
-                <div class="card-content">
+                <div class="card-content" data-name="Tamal Dulce (Rosa)">
                     <h3>Dulces (Rosa)</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', -1)">-</button>
-                    <input type="number" id="tamal_dulces" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="piña.jpg" alt="Pina">
-                <div class="card-content">
+                <div class="card-content" data-name="Tamal de Piña">
                     <h3>Pina</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', -1)">-</button>
-                    <input type="number" id="tamal_pina" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="zarzamora.jpg" alt="Zarzamora">
-                <div class="card-content">
+                <div class="card-content" data-name="Tamal de Zarzamora">
                     <h3>Zarzamora</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', -1)">-</button>
-                    <input type="number" id="tamal_zarzamora" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
         </div>
@@ -114,32 +114,32 @@
         <div class="grid">
             <div class="card">
                 <img src="chocolate.jpg" alt="Chocolate">
-                <div class="card-content">
+                <div class="card-content" data-name="Atole de Chocolate">
                     <h3>Chocolate</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', -1)">-</button>
-                    <input type="number" id="atole_chocolate" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="arroz.jpg" alt="Arroz">
-                <div class="card-content">
+                <div class="card-content" data-name="Atole de Arroz con Leche">
                     <h3>Arroz con Leche</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', -1)">-</button>
-                    <input type="number" id="atole_arroz" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
             <div class="card">
                 <img src="champurrado.jpg" alt="Champurrado">
-                <div class="card-content">
+                <div class="card-content" data-name="Champurrado">
                     <h3>Champurrado</h3>
                     <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', -1)">-</button>
-                    <input type="number" id="atole_champurrado" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', 1)">+</button>
+                    <button type="button" class="btn-qty btn-menos">-</button>
+                    <input type="number" class="qty-input" value="0" min="0" readonly>
+                    <button type="button" class="btn-qty" btn-mas">+</button>
                 </div>
             </div>
         </div>
@@ -160,3 +160,17 @@
                 <p class="total-line"><span>Total a Pagar:</span> <span id="resumen-total">$0.00</span></p>
             </div>
 
+            <button type="button" class="btn-submit" onclick="procesarPedido()">
+                Revisar y Aceptar Pedido
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-ticket" class="modal">
+        <div class="ticket">
+            <h3>Confirmacion de Pedido</h3>
+            <div class="ticket-details">
+                <p><strong>Cliente:</strong> <span id="ticket-nombre"></span></p>
+                <p><strong>Direccion:</strong> <span id="ticket-direccion"></span></p>
+                <br>
+                <p><strong>Productos:</strong></p>
