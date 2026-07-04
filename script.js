@@ -36,8 +36,12 @@ function updateTotal() {
     });
 
     const totalDinero = totalProductos * PRECIO_UNITARIO;
-    document.getElementById('resumen-cantidades').innerText = totalProductos + " pzas";
-    document.getElementById('resumen-total').innerText = "$" + totalDinero.toFixed(2);
+    
+    const txtCantidades = document.getElementById('resumen-cantidades');
+    const txtTotal = document.getElementById('resumen-total');
+    
+    if (txtCantidades) txtCantidades.innerText = totalProductos + " pzas";
+    if (txtTotal) txtTotal.innerText = "$" + totalDinero.toFixed(2);
 }
 
 function procesarPedido() {
@@ -93,7 +97,6 @@ function cerrarTicket() {
 }
 
 function confirmarYEnviar() {
-    // CAMBIA TU NUMERO DE WHATSAPP AQUI SI LO DESEAS
     var telefono = "5545784476"; 
     var urlFinal = "https://wa.me" + telefono + "?text=" + mensajeWhatsAppGlobal;
     window.open(urlFinal, '_blank');
@@ -108,4 +111,5 @@ window.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('visitas_lalito', visitasSimuladas);
         el.innerText = visitasSimuladas;
     }
+    updateTotal();
 });
