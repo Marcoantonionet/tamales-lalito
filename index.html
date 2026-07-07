@@ -3,157 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamales Lalito - Pedidos en Linea</title>
+    <title>Tamales Lalito - Pedidos en Línea</title>
     <style>
-        :root {
-            --primary: #d32f2f;
-            --secondary: #fbc02d;
-            --dark: #3e2723;
-            --light: #fffde7;
-            --success: #25d366;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        header { background-color: var(--primary); color: white; text-align: center; padding: 2rem; border-bottom: 5px solid var(--secondary); }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        h2 { color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; margin: 2rem 0 1rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; border: 1px solid #e0e0e0; }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 1rem; }
-        .price { font-weight: bold; color: var(--primary); font-size: 1.2rem; margin: 0.5rem 0; }
-        .btn-qty { background: var(--secondary); border: none; padding: 0.3rem 0.7rem; font-size: 1rem; cursor: pointer; font-weight: bold; border-radius: 4px; }
-        .qty-input { width: 50px; text-align: center; border: 1px solid #ccc; margin: 0 0.5rem; font-size: 1rem; }
-        .form-group { margin-bottom: 1.2rem; }
-        label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
-        input[type="text"], textarea { width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        textarea { resize: vertical; height: 100px; }
-        .order-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 2rem; }
-        .summary { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; }
-        .summary p { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-        .total-line { border-top: 2px dashed #ccc; padding-top: 0.5rem; font-weight: bold; font-size: 1.2rem; color: var(--primary); }
-        .btn-submit { background-color: var(--primary); color: white; border: none; padding: 1rem; width: 100%; font-size: 1.2rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; padding: 1rem; z-index: 1000; }
-        .ticket { background: white; padding: 2rem; border-radius: 8px; max-width: 450px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 8px solid var(--secondary); }
-        .ticket h3 { text-align: center; color: var(--primary); margin-bottom: 1rem; }
-        .ticket-details { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 1rem 0; margin-bottom: 1.5rem; }
-        .ticket-list { list-style: none; margin: 0.5rem 0; }
-        .ticket-list li { display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
-        .ticket-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .btn-cancel { background: #e0e0e0; color: #333; border: none; padding: 0.8rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
-        .btn-whatsapp { background: var(--success); color: white; border: none; padding: 0.8rem; font-weight: bold; border-radius: 4px; cursor: pointer; }
-        footer { text-align: center; padding: 2rem; background: var(--dark); color: white; margin-top: 3rem; }
+        body { font-family: Arial, sans-serif; background-color: #fffdf6; color: #333; padding: 20px; }
+        .contenedor { max-width: 650px; margin: 0 auto; }
+        
+        /* Contador de visitas superior */
+        .contador-visitas { text-align: right; font-size: 12px; color: #666; margin-bottom: 10px; font-weight: bold; }
+        
+        h2 { color: #b32424; border-bottom: 2px solid #b32424; padding-bottom: 5px; margin-top: 30px; }
+        
+        /* Grid de Productos */
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .producto-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .producto-card img { width: 100%; height: 110px; object-fit: cover; border-radius: 4px; }
+        .producto-titulo { font-weight: bold; margin: 10px 0 5px 0; font-size: 14px; }
+        .producto-precio { color: #b32424; font-weight: bold; margin-bottom: 10px; }
+        
+        /* Controles de Cantidad */
+        .contador { display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-cont { background-color: #ffc107; border: none; width: 28px; height: 28px; font-weight: bold; font-size: 16px; cursor: pointer; border-radius: 4px; }
+        .btn-cont:hover { background-color: #e0a800; }
+        .cant-val { font-weight: bold; width: 20px; display: inline-block; }
+        
+        /* Secciones de Formulario y Total */
+        .seccion { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 20px; }
+        .input-grupo { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
+        input, textarea { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        
+        .total-box { font-size: 18px; font-weight: bold; text-align: right; color: #b32424; margin-bottom: 15px; }
+        
+        /* Botón de WhatsApp */
+        .btn-whatsapp { background-color: #25D366; color: white; padding: 14px 20px; border: none; border-radius: 4px; font-weight: bold; font-size: 16px; cursor: pointer; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-whatsapp:hover { background-color: #20ba5a; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tamales Lalito</h1>
-        <p>Los tamales y atoles mas sabrosos de la region! Todos a solo $20.00 c/u</p>
-        <p>San Bartolo Ameyalco, Delegacion Alvaro Obregon, Ciudad de México</p>
-        <p>Contacto: 5545784476</p>
-    </header>
+<div class="contenedor">
 
-    <div class="container">
-        
-        <h2>Nuestros Tamales ($20.00)</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="rajas.jpg" alt="Rajas">
-                <div class="card-content" data-name="Tamal de Rajas con Queso">
-                    <h3>Rajas con Queso</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', -1)">-</button>
-                    <input type="number" id="tamal_rajas" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_rajas', 1)">+</button>
-                </div>
+    <!-- Contador de visitas visible en esquina superior -->
+    <div class="contador-visitas">👁️ Visitas a la página: <span id="num-visitas">0</span></div>
+
+    <!-- Sección de Tamales -->
+    <h2>Nuestros Tamales ($20.00)</h2>
+    <div class="productos-grid">
+        <!-- Tamal Zarzamora -->
+        <div class="producto-card" data-id="tamal_zarzamora">
+            <img src="https://placeholder.com" alt="Tamal de Zarzamora">
+            <div class="producto-titulo">Tamal de Zarzamora</div>
+            <div class="producto-precio">$20.00</div>
+            <div class="contador">
+                <button class="btn-cont" onclick="cambiarCantidad('tamal_zarzamora', -1)">-</button>
+                <span class="cant-val" id="cant-tamal_zarzamora">0</span>
+                <button class="btn-cont" onclick="cambiarCantidad('tamal_zarzamora', 1)">+</button>
             </div>
-            <div class="card">
-                <img src="verde.jpg" alt="Verde">
-                <div class="card-content" data-name="Tamal Verde">
-                    <h3>Verdes</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', -1)">-</button>
-                    <input type="number" id="tamal_verdes" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_verdes', 1)">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="dulces.jpg" alt="Dulce">
-                <div class="card-content" data-name="Tamal Dulce (Rosa)">
-                    <h3>Dulces (Rosa)</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', -1)">-</button>
-                    <input type="number" id="tamal_dulces" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_dulces', 1)">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="piña.jpg" alt="Pina">
-                <div class="card-content" data-name="Tamal de Piña">
-                    <h3>Pina</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', -1)">-</button>
-                    <input type="number" id="tamal_pina" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_pina', 1)">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="zarzamora.jpg" alt="Zarzamora">
-                <div class="card-content" data-name="Tamal de Zarzamora">
-                    <h3>Zarzamora</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', -1)">-</button>
-                    <input type="number" id="tamal_zarzamora" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('tamal_zarzamora', 1)">+</button>
-                </div>
+        </div>
+    </div>
+
+    <!-- Sección de Atoles -->
+    <h2>Nuestros Atoles ($20.00)</h2>
+    <div class="productos-grid">
+        <!-- Chocolate -->
+        <div class="producto-card" data-id="chocolate">
+            <img src="https://placeholder.com" alt="Chocolate">
+            <div class="producto-titulo">Chocolate</div>
+            <div class="producto-precio">$20.00</div>
+            <div class="contador">
+                <button class="btn-cont" onclick="cambiarCantidad('chocolate', -1)">-</button>
+                <span class="cant-val" id="cant-chocolate">0</span>
+                <button class="btn-cont" onclick="cambiarCantidad('chocolate', 1)">+</button>
             </div>
         </div>
 
-        <h2>Nuestros Atoles ($20.00)</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="chocolate.jpg" alt="Chocolate">
-                <div class="card-content" data-name="Atole de Chocolate">
-                    <h3>Chocolate</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', -1)">-</button>
-                    <input type="number" id="atole_chocolate" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_chocolate', 1)">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="arroz.jpg" alt="Arroz">
-                <div class="card-content" data-name="Atole de Arroz con Leche">
-                    <h3>Arroz con Leche</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', -1)">-</button>
-                    <input type="number" id="atole_arroz" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_arroz', 1)">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="champurrado.jpg" alt="Champurrado">
-                <div class="card-content" data-name="Champurrado">
-                    <h3>Champurrado</h3>
-                    <p class="price">$20.00</p>
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', -1)">-</button>
-                    <input type="number" id="atole_champurrado" class="qty-input" value="0" min="0" oninput="updateTotal()">
-                    <button type="button" class="btn-qty" onclick="changeQty('atole_champurrado', 1)">+</button>
-                </div>
+        <!-- Arroz con Leche -->
+        <div class="producto-card" data-id="arroz">
+            <img src="https://placeholder.com" alt="Arroz con Leche">
+            <div class="producto-titulo">Arroz con Leche</div>
+            <div class="producto-precio">$20.00</div>
+            <div class="contador">
+                <button class="btn-cont" onclick="cambiarCantidad('arroz', -1)">-</button>
+                <span class="cant-val" id="cant-arroz">2</span>
+                <button class="btn-cont" onclick="cambiarCantidad('arroz', 1)">+</button>
             </div>
         </div>
 
-        <h2>Datos de Entrega</h2>
-        <div class="order-box">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" placeholder="Ej. Juan Perez">
+        <!-- Champurrado -->
+        <div class="producto-card" data-id="champurrado">
+            <img src="https://placeholder.com" alt="Champurrado">
+            <div class="producto-titulo">Champurrado</div>
+            <div class="producto-precio">$20.00</div>
+            <div class="contador">
+                <button class="btn-cont" onclick="cambiarCantidad('champurrado', -1)">-</button>
+                <span class="cant-val" id="cant-champurrado">0</span>
+                <button class="btn-cont" onclick="cambiarCantidad('champurrado', 1)">+</button>
             </div>
-            <div class="form-group">
-                <label for="direccion">Direccion de Entrega:</label>
-                <textarea id="direccion" placeholder="Calle, numero, colonia..."></textarea>
-            </div>
-            
-            <div class="summary">
+        </div>
+    </div>
 
+    <!-- Datos de Entrega -->
+    <h2>Datos de Entrega</h2>
+    <div class="seccion">
+        <div class="input-grupo">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+        </div>
+        <div class="input-grupo">
+            <label for="direccion">Dirección de Entrega:</label>
+            <textarea id="direccion" rows="3" placeholder="Calle, número, colonia..."></textarea>
+        </div>
+    </div>
+
+    <!-- Caja de Total y Confirmación -->
+    <div class="seccion">
+        <div class="total-box">Total Actual: $<span id="total-pago">40.00</span> MXN</div>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Confirmar Pedido por WhatsApp</button>
+    </div>
+
+</div>
+
+<script>
+    // Inventario unificado con tamales y atoles
+    const productos = {
+        tamal_zarzamora: { nombre: "Tamal de Zarzamora", precio: 20, cantidad: 0 },
+        chocolate: { nombre: "Chocolate", precio: 20, cantidad: 0 },
+        arroz: { nombre: "Arroz con Leche", precio: 20, cantidad: 2 },
+        champurrado: { nombre: "Champurrado", precio: 20, cantidad: 0 }
+    };
+
+    // Lógica del contador de visitas (Persistente localmente)
+    window.onload = function() {
+        let visitas = localStorage.getItem('contadorVisitas');
+        if (visitas === null) {
+            visitas = 1;
+        } else {
+            visitas = parseInt(visitas) + 1;
+        }
+        localStorage.setItem('contadorVisitas', visitas);
+        document.getElementById('num-visitas').innerText = visitas;
+    };
+
+    // Cambiar cantidades en pantalla
+    function cambiarCantidad(id, cambio) {
+        let producto = productos[id];
+        let nuevaCantidad = producto.cantidad + cambio;
+
+        if (nuevaCantidad >= 0) {
+            producto.cantidad = nuevaCantidad;
+            document.getElementById(`cant-${id}`).innerText = nuevaCantidad;
+            calcularTotal();
+        }
+    }
+
+    // Calcular el total monetario
+    function calcularTotal() {
+        let total = 0;
+        for (let key in productos) {
+            total += productos[key].cantidad * productos[key].precio;
+        }
+        document.getElementById('total-pago').innerText = total.toFixed(2);
+    }
+
+    // Estructura y envío del mensaje
+    function enviarWhatsApp() {
+        const nombre = document.getElementById('nombre').value.trim();
+        const direccion = document.getElementById('direccion').value.trim();
+
+        if (!nombre || !direccion) {
+            alert("Por favor, ingresa tu nombre y dirección de entrega.");
+            return;
+        }
+
+        let detallePedido = "";
+        let totalAcumulado = 0;
+
+        for (let key in productos) {
+            let p = productos[key];
+            if (p.cantidad > 0) {
+                let subtotal = p.cantidad * p.precio;
+                detallePedido += `- ${p.cantidad} ${p.nombre} ($${subtotal.toFixed(2)})\n`;
+                totalAcumulado += subtotal;
+            }
+        }
+
+        if (totalAcumulado === 0) {
+            alert("Tu carrito está vacío. Agrega al menos un producto.");
+            return;
+        }
+
+        const mensaje = `¡Hola! Me gustaría confirmar mi pedido:\n\n` +
+                        `Detalle:\n` +
+                        `${detallePedido}\n` +
+                        `Total: $${totalAcumulado.toFixed(2)} MXN\n\n` +
+                        `Datos de Entrega:\n` +
+                        `- Nombre: ${nombre}\n` +
+                        `- Dirección: ${direccion}`;
+
+        const telefonoTienda = "521XXXXXXXXXX"; // Reemplazar con el número real de WhatsApp
+        const urlWhatsApp = `https://wa.me{telefonoTienda}?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(urlWhatsApp, '_blank');
+    }
+</script>
+
+</body>
+</html>
