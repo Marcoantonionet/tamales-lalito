@@ -166,7 +166,7 @@
     }
 
     // Estructura y envío del mensaje
-    function enviarWhatsApp() {
+       function enviarWhatsApp() {
         const nombre = document.getElementById('nombre').value.trim();
         const direccion = document.getElementById('direccion').value.trim();
 
@@ -200,12 +200,12 @@
                         `- Nombre: ${nombre}\n` +
                         `- Dirección: ${direccion}`;
 
-        const telefonoTienda = "525643804660";// Reemplazar con el número real de WhatsApp
-        // Busca esta línea (aproximadamente la línea 174) y déjala EXACTAMENTE así:
+        // ENLACE CORREGIDO CON TU NÚMERO DIRECTO
         const urlWhatsApp = `https://wa.me{encodeURIComponent(mensaje)}`;
 
-
         window.open(urlWhatsApp, '_blank');
+    }
+
     }
 </script>
 
