@@ -119,18 +119,19 @@
         for (let key in productos) { total += productos[key].cantidad * productos[key].precio; }
         document.getElementById('total-pago').innerText = total.toFixed(2);
     }
-    function enviarWhatsApp() {
-        const nombre = document.getElementById('id-nombre').value.trim();
-        const direccion = document.getElementById('id-direccion').value.trim();
-        if (!nombre || !direccion) { alert("Por favor, ingresa tu nombre y dirección de entrega."); return; }
-        let detallePedido = "";
-        let totalAcumulado = 0;
-        for (let key in productos) {
-            let p = productos[key];
-            if (p.cantidad > 0) {
-                let subtotal = p.cantidad * p.precio;
-                detallePedido += `- ${p.cantidad} ${p.nombre} ($${subtotal.toFixed(2)})\n`;
-                totalAcumulado += subtotal;
+    <script>
+function enviarWhatsApp() {
+  // Aquí construyes el mensaje del pedido
+  let mensaje = "Compa exitoss"; // Puedes reemplazarlo por el texto dinámico del pedido
+
+  // URL correcta con tu número en formato internacional
+  let url = `https://wa.me/525643804660?text=${encodeURIComponent(mensaje)}`;
+
+  // Abre WhatsApp Web o la app en el celular
+  window.open(url, '_blank');
+}
+</script>
+
             }
         }
         if (totalAcumulado === 0) { alert("Tu carrito está vacío. Agrega al menos un producto."); return; }
