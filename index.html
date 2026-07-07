@@ -9,39 +9,27 @@
         .contenedor { max-width: 650px; margin: 0 auto; }
         .contador-visitas { text-align: right; font-size: 12px; color: #666; margin-bottom: 10px; font-weight: bold; }
         h2 { color: #b32424; border-bottom: 2px solid #b32424; padding-bottom: 5px; margin-top: 30px; }
-        
-        /* Grid de Productos */
         .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .producto-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .producto-card img { width: 100%; height: 110px; object-fit: cover; border-radius: 4px; display: block; margin: 0 auto 10px auto; }
         .producto-titulo { font-weight: bold; margin: 10px 0 5px 0; font-size: 14px; }
         .producto-precio { color: #b32424; font-weight: bold; margin-bottom: 10px; }
-        
-        /* Controles de Cantidad */
         .contador { display: flex; justify-content: center; align-items: center; gap: 10px; }
         .btn-cont { background-color: #ffc107; border: none; width: 28px; height: 28px; font-weight: bold; font-size: 16px; cursor: pointer; border-radius: 4px; }
         .btn-cont:hover { background-color: #e0a800; }
         .cant-val { font-weight: bold; width: 20px; display: inline-block; }
-        
-        /* Formulario y Caja de Total */
         .seccion { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 20px; }
         .input-grupo { margin-bottom: 15px; }
         label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
         input, textarea { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
         .total-box { font-size: 18px; font-weight: bold; text-align: right; color: #b32424; margin-bottom: 15px; }
-        
-        /* Botón Verde */
         .btn-whatsapp { background-color: #25D366; color: white; padding: 14px 20px; border: none; border-radius: 4px; font-weight: bold; font-size: 16px; cursor: pointer; width: 100%; display: block; text-align: center; text-decoration: none;}
         .btn-whatsapp:hover { background-color: #20ba5a; }
     </style>
 </head>
 <body>
-
 <div class="contenedor">
-
-    <div class="contador-visitas">👁️ Visitas a la página: <span id="num-visitas">0</span></div>
-
-    <!-- Sección de Tamales -->
+    <div class="contador-visitas">👁️ Visitas: <span id="num-visitas">0</span></div>
     <h2>Nuestros Tamales ($20.00)</h2>
     <div class="productos-grid">
         <div class="producto-card">
@@ -55,8 +43,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Sección de Atoles -->
     <h2>Nuestros Atoles ($20.00)</h2>
     <div class="productos-grid">
         <div class="producto-card">
@@ -69,7 +55,6 @@
                 <button class="btn-cont" onclick="cambiarCantidad('chocolate', 1)">+</button>
             </div>
         </div>
-
         <div class="producto-card">
             <img src="https://placeholder.com" alt="Arroz con Leche">
             <div class="producto-titulo">Arroz con Leche</div>
@@ -80,7 +65,6 @@
                 <button class="btn-cont" onclick="cambiarCantidad('arroz', 1)">+</button>
             </div>
         </div>
-
         <div class="producto-card">
             <img src="https://placeholder.com" alt="Champurrado">
             <div class="producto-titulo">Champurrado</div>
@@ -92,28 +76,22 @@
             </div>
         </div>
     </div>
-
-    <!-- Datos de Entrega -->
     <h2>Datos de Entrega</h2>
     <div class="seccion">
         <div class="input-grupo">
             <label for="nombre">Nombre Completo:</label>
-            <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+            <input type="text" id="id-nombre" placeholder="Ej. Juan Pérez">
         </div>
         <div class="input-grupo">
             <label for="direccion">Dirección de Entrega:</label>
-            <textarea id="direccion" rows="3" placeholder="Calle, número, colonia..."></textarea>
+            <textarea id="id-direccion" rows="3" placeholder="Calle, número, colonia..."></textarea>
         </div>
     </div>
-
-    <!-- Caja de Total y Confirmación -->
     <div class="seccion">
         <div class="total-box">Total Actual: $<span id="total-pago">0.00</span> MXN</div>
         <button class="btn-whatsapp" onclick="enviarWhatsApp()">Confirmar Pedido por WhatsApp</button>
     </div>
-
 </div>
-
 <script>
     const productos = {
         tamal_zarzamora: { nombre: "Tamal de Zarzamora", precio: 20, cantidad: 0 },
@@ -121,14 +99,12 @@
         arroz: { nombre: "Arroz con Leche", precio: 20, cantidad: 0 },
         champurrado: { nombre: "Champurrado", precio: 20, cantidad: 0 }
     };
-
     window.onload = function() {
         let visitas = localStorage.getItem('contadorVisitas');
         if (visitas === null) { visitas = 1; } else { visitas = parseInt(visitas) + 1; }
         localStorage.setItem('contadorVisitas', visitas);
         document.getElementById('num-visitas').innerText = visitas;
     };
-
     function cambiarCantidad(id, cambio) {
         let producto = productos[id];
         let nuevaCantidad = producto.cantidad + cambio;
@@ -138,27 +114,17 @@
             calcularTotal();
         }
     }
-
     function calcularTotal() {
         let total = 0;
-        for (let key in productos) {
-            total += productos[key].cantidad * productos[key].precio;
-        }
+        for (let key in productos) { total += productos[key].cantidad * productos[key].precio; }
         document.getElementById('total-pago').innerText = total.toFixed(2);
     }
-
     function enviarWhatsApp() {
-        const nombre = document.getElementById('nombre').value.trim();
-        const direccion = document.getElementById('direccion').value.trim();
-
-        if (!nombre || !direccion) {
-            alert("Por favor, ingresa tu nombre y dirección de entrega.");
-            return;
-        }
-
+        const nombre = document.getElementById('id-nombre').value.trim();
+        const direccion = document.getElementById('id-direccion').value.trim();
+        if (!nombre || !direccion) { alert("Por favor, ingresa tu nombre y dirección de entrega."); return; }
         let detallePedido = "";
         let totalAcumulado = 0;
-
         for (let key in productos) {
             let p = productos[key];
             if (p.cantidad > 0) {
@@ -167,25 +133,10 @@
                 totalAcumulado += subtotal;
             }
         }
-
-        if (totalAcumulado === 0) {
-            alert("Tu carrito está vacío. Agrega al menos un producto.");
-            return;
-        }
-
-        const mensaje = `¡Hola! Me gustaría confirmar mi pedido:\n\n` +
-                        `Detalle:\n` +
-                        `${detallePedido}\n` +
-                        `Total: $${totalAcumulado.toFixed(2)} MXN\n\n` +
-                        `Datos de Entrega:\n` +
-                        `- Nombre: ${nombre}\n` +
-                        `- Dirección: ${direccion}`;
-
-        // NÚMERO TOTALMENTE CONFIGURADO
-        const urlWhatsApp = `https://wa.me{encodeURIComponent(mensaje)}`;
-        window.open(urlWhatsApp, '_blank');
+        if (totalAcumulado === 0) { alert("Tu carrito está vacío. Agrega al menos un producto."); return; }
+        const mensaje = `¡Hola! Me gustaría confirmar mi pedido:\n\nDetalle:\n${detallePedido}\nTotal: $${totalAcumulado.toFixed(2)} MXN\n\nDatos de Entrega:\n- Nombre: ${nombre}\n- Dirección: ${direccion}`;
+        window.open(`https://wa.me{encodeURIComponent(mensaje)}`, '_blank');
     }
 </script>
-
 </body>
 </html>
